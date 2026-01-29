@@ -1,5 +1,6 @@
 import React from 'react';
 import { AdUnit } from './AdUnit';
+import { SEO } from './SEO';
 
 interface CalculatorLayoutProps {
   title: string;
@@ -16,6 +17,8 @@ export const CalculatorLayout: React.FC<CalculatorLayoutProps> = ({
 }) => {
   return (
     <div className="max-w-4xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
+      <SEO title={title} description={description} />
+      
       <header className="mb-8 text-center">
         <h1 className="text-3xl sm:text-4xl font-bold text-teal-800 mb-3">{title}</h1>
         <p className="text-lg text-slate-600 max-w-2xl mx-auto">{description}</p>
@@ -26,18 +29,20 @@ export const CalculatorLayout: React.FC<CalculatorLayoutProps> = ({
 
       {/* Calculator Section */}
       <div className="bg-white rounded-xl shadow-lg border border-slate-100 overflow-hidden mb-12">
-        <div className="bg-teal-600 px-6 py-4">
-          <h2 className="text-white font-semibold text-xl">Calculator Tool</h2>
+        <div className="bg-teal-600 px-6 py-4 border-b border-teal-700">
+          <h2 className="text-white font-semibold text-xl flex items-center">
+            <span className="mr-2">🧮</span> Calculator Tool
+          </h2>
         </div>
-        <div className="p-6 sm:p-8">
+        <div className="p-6 sm:p-8 bg-slate-50/50">
           {calculator}
         </div>
       </div>
 
       {/* Content Section */}
-      <div className="prose prose-slate max-w-none bg-white p-6 sm:p-8 rounded-xl shadow-sm border border-slate-100">
+      <article className="prose prose-slate prose-lg max-w-none bg-white p-6 sm:p-10 rounded-xl shadow-sm border border-slate-100">
         {content}
-      </div>
+      </article>
 
       {/* Bottom Ad */}
       <AdUnit label="Bottom Banner Ad" />

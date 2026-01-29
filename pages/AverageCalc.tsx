@@ -60,9 +60,9 @@ export const AverageCalc: React.FC = () => {
          {subjects.length < 10 && (
           <button 
             onClick={addSubject}
-            className="text-sm text-teal-600 hover:text-teal-800 font-medium underline"
+            className="text-sm text-teal-600 hover:text-teal-800 font-medium underline flex items-center"
           >
-            + Add Another Subject
+            <span className="mr-1 text-lg">+</span> Add Another Subject
           </button>
          )}
       </div>
@@ -77,9 +77,10 @@ export const AverageCalc: React.FC = () => {
       </div>
 
       {result !== null && (
-        <div className="mt-6 p-4 bg-teal-50 border border-teal-200 rounded-lg text-center">
-          <p className="text-sm text-teal-600 font-semibold uppercase tracking-wider mb-1">Average Score</p>
-          <p className="text-3xl font-bold text-teal-800">{result.toFixed(2)}</p>
+        <div className="mt-6 p-6 bg-teal-50 border border-teal-200 rounded-lg text-center shadow-sm">
+          <p className="text-sm text-teal-600 font-semibold uppercase tracking-wider mb-2">Average Score</p>
+          <p className="text-4xl font-extrabold text-teal-800">{result.toFixed(2)}</p>
+          <p className="text-xs text-slate-500 mt-2">Mean of {subjects.filter(s => s !== '').length} subjects</p>
         </div>
       )}
     </div>
@@ -87,33 +88,44 @@ export const AverageCalc: React.FC = () => {
 
   const content = (
     <>
-      <h3 className="text-xl font-bold text-slate-800 mb-3">Average Marks Calculator</h3>
-      <p className="mb-4">
-        Finding the mean or average of your scores helps in understanding your overall performance across
-        different subjects. This calculator supports up to 10 subjects.
+      <h3 className="text-2xl font-bold text-slate-800 mb-4">Calculate Average Marks</h3>
+      <p className="mb-6 leading-relaxed">
+        Calculating the average (or mean) of your marks is useful for determining your overall performance 
+        across multiple subjects. It smoothes out the variance between your best and worst subjects to give 
+        a single performance indicator. This calculator allows you to input up to 10 different subject marks.
       </p>
       
-      <h4 className="text-lg font-semibold text-slate-800 mb-2">Formula Used</h4>
-      <div className="bg-slate-100 p-4 rounded-lg mb-6 font-mono text-sm text-slate-700">
-        Average = Sum of all items / Number of items
+      <h4 className="text-xl font-bold text-slate-800 mb-3">The Average Formula</h4>
+      <div className="bg-slate-100 p-5 rounded-lg mb-8 font-mono text-base text-slate-700 border-l-4 border-teal-500">
+        Average = (Sum of all Scores) ÷ (Number of Subjects)
       </div>
 
-      <h4 className="text-lg font-semibold text-slate-800 mb-2">Example</h4>
+      <h4 className="text-xl font-bold text-slate-800 mb-3">Example Scenario</h4>
       <p className="mb-4">
-        Math: 80, English: 70, Science: 90.
+        Imagine a student has the following scores in their mid-term exams:
       </p>
-      <ul className="list-disc pl-5 space-y-2 mb-6 text-slate-600">
-        <li>Sum: 80 + 70 + 90 = 240</li>
-        <li>Count: 3 subjects</li>
-        <li>Average: 240 / 3 = <strong>80</strong></li>
+      <ul className="list-disc pl-6 space-y-2 mb-6 text-slate-600">
+        <li>Mathematics: 85</li>
+        <li>English: 72</li>
+        <li>Science: 90</li>
+        <li>History: 78</li>
       </ul>
+      <p className="mb-2"><strong>Step 1 (Sum):</strong> 85 + 72 + 90 + 78 = 325</p>
+      <p className="mb-2"><strong>Step 2 (Count):</strong> There are 4 subjects.</p>
+      <p className="mb-6"><strong>Step 3 (Divide):</strong> 325 ÷ 4 = <strong>81.25</strong></p>
+
+      <h4 className="text-xl font-bold text-slate-800 mb-3">Usage Tips</h4>
+      <p className="text-slate-600">
+        Ensure all marks are out of the same total (e.g., all out of 100) for the average to be meaningful. 
+        If subjects have different weights, you might need a Weighted Average Calculator instead.
+      </p>
     </>
   );
 
   return (
     <CalculatorLayout 
       title="Average Marks Calculator" 
-      description="Calculate the average of multiple subjects or data points."
+      description="Calculate the average of marks for multiple subjects easily. Supports up to 10 inputs."
       calculator={calculatorTool}
       content={content}
     />

@@ -67,14 +67,7 @@ export const Home: React.FC<HomeProps> = ({ navigate }) => {
               className="bg-white rounded-xl shadow-md border border-slate-100 p-6 hover:shadow-xl hover:-translate-y-1 transition-all cursor-pointer group"
             >
               <div className="w-12 h-12 bg-teal-50 rounded-lg flex items-center justify-center mb-4 group-hover:bg-teal-100 transition-colors">
-                {/* Simple SVG Icons based on intent */}
-                <span className="text-2xl font-bold text-teal-600">
-                    {calc.path === RoutePath.PERCENTAGE ? '%' : 
-                     calc.path === RoutePath.CGPA_TO_PERCENTAGE ? '9.5' :
-                     calc.path === RoutePath.PERCENTAGE_TO_CGPA ? 'CG' :
-                     calc.path === RoutePath.PASSING_MARKS ? '✓' :
-                     calc.path === RoutePath.GRADE ? 'A+' : 'Avg'}
-                </span>
+                <i className={`fas ${calc.icon} text-2xl text-teal-600`}></i>
               </div>
               <h3 className="text-xl font-bold text-slate-800 mb-2 group-hover:text-teal-700">
                 {calc.title}

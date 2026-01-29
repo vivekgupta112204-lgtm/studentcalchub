@@ -43,9 +43,10 @@ export const PercentageToCgpa: React.FC = () => {
       </div>
 
       {result !== null && (
-        <div className="mt-6 p-4 bg-teal-50 border border-teal-200 rounded-lg text-center">
-          <p className="text-sm text-teal-600 font-semibold uppercase tracking-wider mb-1">Equivalent CGPA</p>
-          <p className="text-3xl font-bold text-teal-800">{result.toFixed(2)}</p>
+        <div className="mt-6 p-6 bg-teal-50 border border-teal-200 rounded-lg text-center shadow-sm">
+          <p className="text-sm text-teal-600 font-semibold uppercase tracking-wider mb-2">Equivalent CGPA</p>
+          <p className="text-4xl font-extrabold text-teal-800">{result.toFixed(2)}</p>
+          <p className="text-xs text-slate-500 mt-2">On a 10-point scale</p>
         </div>
       )}
     </div>
@@ -53,32 +54,41 @@ export const PercentageToCgpa: React.FC = () => {
 
   const content = (
     <>
-      <h3 className="text-xl font-bold text-slate-800 mb-3">Converting Percentage to CGPA</h3>
-      <p className="mb-4">
-        Often applications for higher studies abroad or specific job roles require you to mention your score in CGPA 
-        (Cumulative Grade Point Average). This tool reverses the standard CBSE conversion.
+      <h3 className="text-2xl font-bold text-slate-800 mb-4">Convert Percentage to CGPA</h3>
+      <p className="mb-6 leading-relaxed">
+        While most students start with grades and convert to percentage, there are times when you need to do the reverse.
+        If you are applying for foreign universities or specific corporate jobs, you might be required to state 
+        your score in CGPA (Cumulative Grade Point Average) out of 10. This tool helps you reverse the standard conversion.
       </p>
       
-      <h4 className="text-lg font-semibold text-slate-800 mb-2">Formula Used</h4>
-      <div className="bg-slate-100 p-4 rounded-lg mb-6 font-mono text-sm text-slate-700">
-        CGPA = Percentage / 9.5
+      <h4 className="text-xl font-bold text-slate-800 mb-3">Formula Used</h4>
+      <div className="bg-slate-100 p-5 rounded-lg mb-8 font-mono text-base text-slate-700 border-l-4 border-teal-500">
+        CGPA = Percentage ÷ 9.5
       </div>
 
-      <h4 className="text-lg font-semibold text-slate-800 mb-2">Example Case</h4>
+      <h4 className="text-xl font-bold text-slate-800 mb-3">Example Calculation</h4>
       <p className="mb-4">
-        You achieved <strong>85.5%</strong> in your final exams.
+        Let's say you achieved <strong>85.5%</strong> in your final board exams. To find your CGPA:
       </p>
-      <ul className="list-disc pl-5 space-y-2 mb-6 text-slate-600">
-        <li>Calculation: 85.5 ÷ 9.5</li>
-        <li>Result: <strong>9.0 CGPA</strong></li>
+      <ul className="list-disc pl-6 space-y-3 mb-8 text-slate-600">
+        <li><strong>Input:</strong> 85.5%</li>
+        <li><strong>Calculation:</strong> 85.5 ÷ 9.5</li>
+        <li><strong>Result:</strong> 9.0 CGPA</li>
       </ul>
+
+      <h4 className="text-xl font-bold text-slate-800 mb-3">When should I use this?</h4>
+      <p className="mb-6">
+        Use this calculator if your marksheet only shows Percentage but your college application form 
+        requests a CGPA score. This is common for international applications where the 10-point scale (or 4-point scale) 
+        is more recognizable than raw percentages.
+      </p>
     </>
   );
 
   return (
     <CalculatorLayout 
       title="Percentage to CGPA Calculator" 
-      description="Convert your percentage marks back to a 10-point CGPA scale."
+      description="Easily convert your marks percentage back to a 10-point scale CGPA."
       calculator={calculatorTool}
       content={content}
     />
