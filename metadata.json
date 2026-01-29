@@ -1,0 +1,5 @@
+{
+  "name": "Student Calculator Hub",
+  "description": "A fast, mobile-first educational website featuring essential calculators for students to compute marks, CGPA, grades, and percentages.",
+  "requestFramePermissions": []
+}
